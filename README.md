@@ -1,2 +1,2 @@
 # hrkj-vux-components
-vue组件库
+vue组件库 build by vux
