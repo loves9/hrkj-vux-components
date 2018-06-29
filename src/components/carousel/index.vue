@@ -11,7 +11,7 @@
 import uuidMixin from '../../mixins/uuid'
 
 export default {
-  name: 'carousel',
+  name: 'agree',
   mixins: [uuidMixin],
   props: {
     value: Boolean
