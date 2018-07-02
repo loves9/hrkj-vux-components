@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, VuxComponentListData as components } from 'vux'
+import { Flexbox, FlexboxItem, HRKJVuxComponentListData as components } from 'vux'
 import { mapState } from 'vuex'
 import DemoList from './DemoList'
 

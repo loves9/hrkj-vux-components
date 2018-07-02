@@ -1,4 +1,5 @@
 {
+  "HRKJVuxComponentListData": "src/datas/hrkj_component_list.json",
   "Carousel": "src/components/carousel/index.vue",
 
 

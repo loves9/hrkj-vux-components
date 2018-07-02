@@ -1,18 +1,5 @@
 [
   {
-    "name": "carousel",
-    "icon": "&#xe624;",
-    "category_en": "Carousel",
-    "category_zh-CN": "轮播图",
-    "category_order": 998,
-    "hasHome": false
-  },
-
-
-
-
-
-  {
     "name": "actionsheet",
     "icon": "&#xe624;",
     "category_en": "Feedback",

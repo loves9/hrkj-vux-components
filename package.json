@@ -1,10 +1,10 @@
 {
   "name": "hrkj-vux-components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "index.js",
-  "description": "Mobile web UI based on Vue and WeUI",
+  "description": "Mobile web UI based on Vux",
   "keywords": [
-    "vux",
+    "hrkj",
     "vue"
   ],
   "author": "",
