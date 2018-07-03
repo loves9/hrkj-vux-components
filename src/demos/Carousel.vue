@@ -1,7 +1,6 @@
 <template>
   <div>
-    <carousel>阅读并同意<a href="javascript:void(0);">《相关条款》</a></carousel>
-    <carousel v-model="valueTrue">阅读并同意<a href="javascript:void(0);">《相关条款》</a></carousel>
+    <carousel :swiperImages="swiperImages"></carousel>
   </div>
 </template>
 
@@ -14,7 +13,18 @@ export default {
   },
   data () {
     return {
-      valueTrue: true
+      swiperImages: [
+        {
+          src: 'http://www.daiwei.org/index/music/musicImg/Faded.jpg',
+          type: '一月',
+          color: '#E93D3D'
+        },
+        {
+          src: 'http://oiq8j9er1.bkt.clouddn.com/music_owl_city.jpg',
+          type: '二月',
+          color: '#48A787'
+        }
+      ]
     }
   }
 }

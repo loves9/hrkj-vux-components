@@ -1,11 +1,11 @@
 <template>
   <div style="height:100%;">
-    <div v-transfer-dom>
+    <!-- <div v-transfer-dom>
       <loading v-model="isLoading"></loading>
     </div>
     <div v-transfer-dom>
       <actionsheet :menus="menus" v-model="showMenu" @on-click-menu="changeLocale"></actionsheet>
-    </div>
+    </div> -->
 
     <drawer
     width="200px;"

@@ -17,6 +17,7 @@
       </cell> -->
     </group>
     <br>
+    <p class="vue-version">based by vux</p>
     <p class="vue-version">current vue version: {{ vueVersion }}</p>
     <p class="vue-version">current vux version: 2.9.2</p>
   </div>
