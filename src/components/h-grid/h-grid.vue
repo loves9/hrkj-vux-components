@@ -1,9 +1,18 @@
 <template>
     <div class="h-flexbox vux-1px-b">
-        <div class="h-flexbox-item vux-1px-b" v-for="(list, index) in componentListData" :key="index" @click="itemClick(list)">
+        <div
+            class="h-flexbox-item vux-1px-b"
+            v-for="(item, index) in dataSource"
+            :key="index"
+            @click="itemClick(item)"
+        >
             <div class="vux-1px-r">
-                <i class="icon iconfont" :class="list.iconClass" :style="{'font-size':list.fontSize,'color':list.color,'line-height':list.fontSize}"></i>
-                <p>{{list.name}}</p>
+                <i
+                    class="icon iconfont"
+                    :class="item.iconClass"
+                    :style="{'font-size':item.fontSize,'color':item.color,'line-height':item.fontSize}"
+                ></i>
+                <p>{{item.name}}</p>
             </div>
         </div>
     </div>
@@ -12,14 +21,14 @@
 <script>
 export default {
     props: {
-        componentListData: {
+        dataSource: {
             type: Array,
             default: []
         }
     },
     methods: {
         itemClick(itemData) {
-            this.$emit("HREVENT_itemClick", itemData);
+            this.$emit("onPress", itemData);
         }
     }
 };

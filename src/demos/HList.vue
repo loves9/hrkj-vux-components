@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h-list :dataSource="listData" v-on:HREVENT_itemClick="itemClick">
+    <h-list :dataSource="listData" @onPress="itemClick">
 
     </h-list>
   </div>

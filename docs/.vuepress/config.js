@@ -25,7 +25,8 @@ module.exports = {
         'hv-start',
         'hv-transinfo',
         'hv-list',
-        'hv-doc-cell'
+        'hv-doc-cell',
+        'hv-grid'
       ]
     }
   }
