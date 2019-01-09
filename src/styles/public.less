@@ -1,0 +1,20 @@
+body{
+  background-color: #f4f4f4;
+}
+
+.overflowellipsis(@line:2){
+  overflow: hidden; 
+  display: -webkit-box; 
+  -webkit-line-clamp: @line; 
+  -webkit-box-orient: vertical;
+}
+
+.tab(@tabcolor:#1E4A8D){
+  border: 1px solid @tabcolor;
+  border-radius: 100px;
+  color: @tabcolor;
+  padding: 0 10px;
+  font-size: 12px;
+  height: 16px;
+  line-height: 16px;
+}

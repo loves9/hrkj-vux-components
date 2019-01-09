@@ -1,17 +1,49 @@
 [
     {
-        "name": "carousel",
-        "icon": "&#xe624;",
-        "category_en": "Carousel",
-        "category_zh-CN": "轮播图",
+        "name": "h-transinfo",
+        "icon": "&#xe603;",
+        "category_en": "HTransinfo",
+        "category_zh-CN": "流转明细",
         "category_order": 998,
         "hasHome": false
     },
     {
-        "name": "transferdetails",
+        "name": "h-grid",
         "icon": "&#xe603;",
-        "category_en": "TransferDetails",
-        "category_zh-CN": "流转明细",
+        "category_en": "HGrid",
+        "category_zh-CN": "网格布局",
+        "category_order": 998,
+        "hasHome": false
+    },
+    {
+        "name": "h-list",
+        "icon": "&#xe603;",
+        "category_en": "HList",
+        "category_zh-CN": "列表",
+        "category_order": 998,
+        "hasHome": false
+    },
+    {
+        "name": "h-roll-tips",
+        "icon": "&#xe603;",
+        "category_en": "HRollTips",
+        "category_zh-CN": "滚动提示",
+        "category_order": 998,
+        "hasHome": false
+    },
+    {
+        "name": "h-doc-cell",
+        "icon": "&#xe603;",
+        "category_en": "HDocCell",
+        "category_zh-CN": "文档组件",
+        "category_order": 998,
+        "hasHome": false
+    },
+    {
+        "name": "h-list-new",
+        "icon": "&#xe603;",
+        "category_en": "HListNew",
+        "category_zh-CN": "列表新",
         "category_order": 998,
         "hasHome": false
     }

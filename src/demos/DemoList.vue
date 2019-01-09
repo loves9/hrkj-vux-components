@@ -64,10 +64,10 @@ export default {
       const lastLength = lastList.length
       if (lastLength < 3) {
         for (let i = 0; i < 3 - lastLength; i++) {
-          lastList.push({
+          /* lastList.push({
             name: '----',
             icon: ''
-          })
+          }) */
         }
       }
       return chunks

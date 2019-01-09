@@ -1,6 +1,12 @@
 [
-  "Carousel",
-  
+  "HUserinfo",
+  "HTransinfo",
+  "HGrid",
+  "HList",
+  "HRollTips",
+  "HDocCell",
+  "HListNew",
+
   "Cell",
   "OnePx#/css/1px",
   "Actionsheet",
