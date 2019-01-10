@@ -5,6 +5,8 @@
             subTitle="35.5k"
             image="static/images/pdf.png"
             :iconFont="iconFontClass"
+
+            @click.native="itemClick"
         ></h-doc-cell>
     </div>
 </template>
@@ -24,6 +26,11 @@ export default {
                 color: "#47B3E1"
             }
         };
+    },
+    methods: {
+        itemClick(){
+            alert('doc-cell')
+        }
     }
 };
 </script>

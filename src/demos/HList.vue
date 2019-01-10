@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <h-list :dataSource="listData" @onPress="itemClick">
-
-    </h-list>
-  </div>
+    <div>
+        <h-list 
+        ref="list"
+        :dataSource="listData" 
+        :pullUpRefresh=true
+        :pullDownRefresh=true
+        @onPress="itemClick" 
+        @pullUpRefresh="pullUp"
+        @pullDownRefresh="pullDown"
+        >
+        </h-list>
+    </div>
 </template>
 
 <script>
@@ -17,7 +24,7 @@ export default {
                     processName: "分公司投放条件审批流程",
                     taskName: "部门负责人审核",
                     taskColor: "tab_blue",
-                    time: "到达：2018-03-22",
+                    time: "到达：2018-03-22"
                 },
                 {
                     title: "用户需求说明书-【YG-HB17171-A】【公文系统-华融简…",
@@ -67,12 +74,43 @@ export default {
                     taskColor: "tab_blue",
                     time: "到达：2018-03-22"
                 }
-            ]
+            ],
+
+            order: 0
         };
     },
     methods: {
         itemClick(item) {
             alert(item.title);
+        },
+        pullUp() {
+            console.log("pullUp");
+
+            for (let index = 0; index < 10; index++) {
+                const element = {
+                    title: "固定收益-新增菜单" + this.order,
+                    processName: "分公司投放条件审批流程",
+                    taskName: "部门负责人审核",
+                    taskColor: "tab_blue",
+                    time: "到达：2018-03-22"
+                }
+
+                this.listData.push(element)
+
+                this.order += 1
+                
+            }
+
+            setTimeout(() => {
+                this.$refs.list.finishPullUpRefresh(true)
+            }, 2000);
+        },
+        pullDown() {
+            console.log("pullDown");
+
+            setTimeout(() => {
+                this.$refs.list.finishPullDownRefresh()
+            }, 2000);
         }
     },
     components: {

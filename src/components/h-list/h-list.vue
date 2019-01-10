@@ -1,34 +1,107 @@
 <template>
     <div class="h-list">
-        <div class="list" v-for="(item,index) in dataSource" :key="index" @click="itemClick(item)">
-            <div class="flexBox">
-                <div class="title1" v-if="item.processName">{{item.processName}}</div>
-                <span class="tab" :class="item.taskColor" v-if="item.taskName">{{item.taskName}}</span>
+        <scroller
+            v-if="dataSource.length != 0"
+            ref="hrkjscroller"
+            :on-refresh="pullDownRefresh? refresh: undefined"
+            :on-infinite="pullUpRefresh? infinite: undefined"
+            :refreshText="refreshText"
+        >
+            <div
+                class="list"
+                v-for="(item,index) in dataSource"
+                :key="index"
+                @click="itemClick(item)"
+            >
+                <div class="flexBox">
+                    <div class="title1" v-if="item.processName">{{item.processName}}</div>
+                    <span class="tab" :class="item.taskColor" v-if="item.taskName">{{item.taskName}}</span>
+                </div>
+                <div class="title" v-if="item.title">{{item.title}}</div>
+                <div class="time" v-if="item.time">{{item.time}}</div>
             </div>
-            <div class="title" v-if="item.title">{{item.title}}</div>
-            <div class="time" v-if="item.time">{{item.time}}</div>
+
+            <!-- <load-more v-show="isLoading" tip="正在加载..."></load-more>
+
+            <div class="nodata_container_cls">
+                <div class="nodata_line_cls"></div>
+                <span class="nodata_span_cls">{{noMoreDataText}}</span>
+                <div class="nodata_line_cls"></div>
+            </div>-->
+        </scroller>
+
+        <div v-else class="container_layout_cls">
+            <span class="nodata_span_cls">没有数据</span>
         </div>
     </div>
 </template>
 
 <script>
+import Scroller from "./components/Scroller.vue";
+import LoadMore from "../load-more/index.vue";
+
 export default {
     props: {
         dataSource: {
             type: Array,
             default: []
         },
-        onPress: {
-            type: Function,
-            default: () => {
-                // silence
-            }
+        pullUpRefresh: {
+            type: Boolean,
+            default: false
+        },
+        pullDownRefresh: {
+            type: Boolean,
+            default: false
         }
+    },
+    data() {
+        return {
+            isNoMoreData: false,
+            refreshText: "下拉加载更多",
+
+            isRefreshing: false
+        };
+    },
+    mounted() {
     },
     methods: {
         itemClick(item) {
             this.$emit("onPress", item);
+        },
+        refresh() {
+            if (this.isRefreshing) {
+                return;
+            }
+            this.isRefreshing = true;
+
+            this.$emit("pullDownRefresh");
+        },
+        finishPullDownRefresh() {
+            this.isRefreshing = false;
+
+            this.$refs.hrkjscroller.finishPullToRefresh();
+        },
+        infinite() {
+            if (this.isRefreshing || this.isNoMoreData) {
+                console.log('nomoredata', this.isNoMoreData)
+                return;
+            }
+
+            this.isRefreshing = true;
+
+            this.$emit("pullUpRefresh");
+        },
+        finishPullUpRefresh(noMoreData) {
+            this.isRefreshing = false;
+            this.isNoMoreData = noMoreData;
+
+            this.$refs.hrkjscroller.finishInfinite(noMoreData);
         }
+    },
+    components: {
+        Scroller,
+        LoadMore
     }
 };
 </script>
@@ -82,5 +155,37 @@ export default {
         color: #999999;
         margin-top: 10px;
     }
+}
+</style>
+
+<style lang="less" scoped>
+.container_layout_cls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.nodata_container_cls {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
+}
+
+.nodata_line_cls {
+    height: 1px;
+    background-color: #d5d5d5;
+    width: 100vh;
+}
+
+.nodata_span_cls {
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #909399;
+    letter-spacing: 0;
+    text-align: center;
+    width: 80vh;
 }
 </style>
