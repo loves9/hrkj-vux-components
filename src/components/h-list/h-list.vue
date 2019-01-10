@@ -7,27 +7,25 @@
             :on-infinite="pullUpRefresh? infinite: undefined"
             :refreshText="refreshText"
         >
-            <div
-                class="list"
-                v-for="(item,index) in dataSource"
-                :key="index"
-                @click="itemClick(item)"
-            >
-                <div class="flexBox">
-                    <div class="title1" v-if="item.processName">{{item.processName}}</div>
-                    <span class="tab" :class="item.taskColor" v-if="item.taskName">{{item.taskName}}</span>
+            <slot>
+                <div
+                    class="list"
+                    v-for="(item,index) in dataSource"
+                    :key="index"
+                    @click="itemClick(item)"
+                >
+                    <div class="flexBox">
+                        <div class="title1" v-if="item.processName">{{item.processName}}</div>
+                        <span
+                            class="tab"
+                            :class="item.taskColor"
+                            v-if="item.taskName"
+                        >{{item.taskName}}</span>
+                    </div>
+                    <div class="title" v-if="item.title">{{item.title}}</div>
+                    <div class="time" v-if="item.time">{{item.time}}</div>
                 </div>
-                <div class="title" v-if="item.title">{{item.title}}</div>
-                <div class="time" v-if="item.time">{{item.time}}</div>
-            </div>
-
-            <!-- <load-more v-show="isLoading" tip="正在加载..."></load-more>
-
-            <div class="nodata_container_cls">
-                <div class="nodata_line_cls"></div>
-                <span class="nodata_span_cls">{{noMoreDataText}}</span>
-                <div class="nodata_line_cls"></div>
-            </div>-->
+            </slot>
         </scroller>
 
         <div v-else class="container_layout_cls">
@@ -63,8 +61,7 @@ export default {
             isRefreshing: false
         };
     },
-    mounted() {
-    },
+    mounted() {},
     methods: {
         itemClick(item) {
             this.$emit("onPress", item);
@@ -84,7 +81,7 @@ export default {
         },
         infinite() {
             if (this.isRefreshing || this.isNoMoreData) {
-                console.log('nomoredata', this.isNoMoreData)
+                console.log("nomoredata", this.isNoMoreData);
                 return;
             }
 

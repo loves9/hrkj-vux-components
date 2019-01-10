@@ -106,8 +106,6 @@ export default {
             }, 2000);
         },
         pullDown() {
-            console.log("pullDown");
-
             setTimeout(() => {
                 this.$refs.list.finishPullDownRefresh()
             }, 2000);

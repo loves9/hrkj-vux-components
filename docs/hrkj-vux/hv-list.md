@@ -20,11 +20,18 @@ export default {
 
 ```vue
 <template>
-  <div>
-    <h-list :dataSource="listData" @onPress="itemClick">
-
-    </h-list>
-  </div>
+    <div>
+        <h-list 
+        ref="list"
+        :dataSource="listData" 
+        :pullUpRefresh=true
+        :pullDownRefresh=true
+        @onPress="itemClick" 
+        @pullUpRefresh="pullUp"
+        @pullDownRefresh="pullDown"
+        >
+        </h-list>
+    </div>
 </template>
 
 <script>
@@ -38,7 +45,7 @@ export default {
                     processName: "分公司投放条件审批流程",
                     taskName: "部门负责人审核",
                     taskColor: "tab_blue",
-                    time: "到达：2018-03-22",
+                    time: "到达：2018-03-22"
                 },
                 {
                     title: "用户需求说明书-【YG-HB17171-A】【公文系统-华融简…",
@@ -88,12 +95,41 @@ export default {
                     taskColor: "tab_blue",
                     time: "到达：2018-03-22"
                 }
-            ]
+            ],
+
+            order: 0
         };
     },
     methods: {
         itemClick(item) {
             alert(item.title);
+        },
+        pullUp() {
+            console.log("pullUp");
+
+            for (let index = 0; index < 10; index++) {
+                const element = {
+                    title: "固定收益-新增菜单" + this.order,
+                    processName: "分公司投放条件审批流程",
+                    taskName: "部门负责人审核",
+                    taskColor: "tab_blue",
+                    time: "到达：2018-03-22"
+                }
+
+                this.listData.push(element)
+
+                this.order += 1
+                
+            }
+
+            setTimeout(() => {
+                this.$refs.list.finishPullUpRefresh(true)
+            }, 2000);
+        },
+        pullDown() {
+            setTimeout(() => {
+                this.$refs.list.finishPullDownRefresh()
+            }, 2000);
         }
     },
     components: {
@@ -107,13 +143,25 @@ export default {
 
 |      属性      | 类型  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |
-| dataSource | Array |  ----  | 数据源 | 0.0.10 |
+| dataSource | Array |  ----  | 数据源 | 0.0.11 |
+| pullUpRefresh | Boolean |  false  | 设置上拉刷新 | 0.0.11 |
+| pullDownRefresh | Boolean |  false  | 设置下拉刷新 | 0.0.11 |
 
 <test backgroundColor="cadetblue"/>
 
 |      事件      | 参数  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |
 | onPress | listData的item |  ----  | 点击列表每条项目的回调监听方法 | 0.0.11 |
+| pullUpRefresh | ---- |  ----  | 上拉刷新监听事件回调 | 0.0.11 |
+| pullDownRefresh | ---- |  ----  | 下拉刷新监听事件回调 | 0.0.11 |
+| finishPullUpRefresh | Boolean |  ----  | finishPullUpRefresh(isNoMoreData :Boolean) 终止上拉刷新，一般加载完全部数据时调用一次 | 0.0.11 |
+| pullDownRefresh | ---- |  ----  | 完成下拉刷新 | 0.0.11 |
+
+<test backgroundColor="coral"/>
+
+|      插槽名字      | ----  | ---- | 说明   | 版本 |
+| :------------: | :---: | :----: | :----- | :----- |
+| 默认插槽 | ---- |  ----  | 如需自定义List Cell的样式，可直接写在h-list标签中 | 0.0.11 |
 
 <style scoped>
     table {
