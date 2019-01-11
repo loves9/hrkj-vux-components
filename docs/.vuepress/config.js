@@ -6,7 +6,7 @@ module.exports = {
   ],
   themeConfig: {
     nav: [
-      { text: "应用模板", link: "/template/" },
+      { text: "模板工程", link: "/template/" },
       { text: "组件库", link: "/hrkj-vux/" },
       { text: "Vux", link: "https://doc.vux.li/zh-CN/" },
       { text: "敏行", link: "https://www.minxing365.com/web/developer.html" }
@@ -26,7 +26,8 @@ module.exports = {
         'hv-transinfo',
         'hv-list',
         'hv-doc-cell',
-        'hv-grid'
+        'hv-grid',
+        'hv-button-group'
       ]
     }
   }

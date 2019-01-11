@@ -1,8 +1,9 @@
 # 部署
 
 登录部署平台  
-仿真地址：http://imappbak.chamc.com.cn  
-生产地址：[http://](http://10.80.36.241:1443/accounts/sign_in#/login)imapp.chamc.com.cn
+仿真地址：[http://imappbak.chamc.com.cn](http://imappbak.chamc.com.cn)
+
+生产地址：[http://imapp.chamc.com.cn](http://10.80.36.241:1443/accounts/sign_in#/login)
 
 **添加应用**
 

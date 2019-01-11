@@ -10,9 +10,7 @@
 
     <drawer
     width="200px;"
-    :show.sync="drawerVisibility"
-    :show-mode="showModeValue"
-    :placement="showPlacementValue"
+
     :drawer-style="{'background-color':'#35495e', width: '200px'}">
 
       <!-- drawer content -->
@@ -34,21 +32,20 @@
       </div>
 
       <!-- main content -->
-      <view-box ref="viewBox" :body-padding-top="isShowNav ? '46px' : '0'" body-padding-bottom="55px">
+      <view-box ref="viewBox" :body-padding-top="isShowNav ? '46px' : '0'" body-padding-bottom="0px">
 
-        <!-- <x-header
+        <x-header
           v-if="isShowNav"
           slot="header"
           style="width:100%;position:absolute;left:0;top:0;z-index:100;"
-          :left-options="leftOptions"
-          :right-options="rightOptions"
+
           :title="title"
           :transition="headerTransition"
           @on-click-more="onClickMore">
           <span v-if="route.path === '/' || route.path === '/component/drawer'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
             <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
           </span>
-        </x-header> -->
+        </x-header>
 
         <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
         <transition
@@ -57,7 +54,7 @@
           <router-view class="router-view"></router-view>
         </transition>
 
-        <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo && isShowBar" slot="bottom">
+        <!-- <tabbar class="vux-demo-tabbar" icon-class="vux-center" v-show="!isTabbarDemo && isShowBar" slot="bottom">
           <tabbar-item :link="{path:'/'}" :selected="route.path === '/'">
             <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
             <span slot="label">Home</span>
@@ -66,7 +63,7 @@
             <span class="demo-icon-22" slot="icon">&#xe633;</span>
             <span slot="label"><span v-if="componentName" class="vux-demo-tabbar-component">{{componentName}}</span><span v-else>Demos</span></span>
           </tabbar-item>
-        </tabbar>
+        </tabbar> -->
 
       </view-box>
     </drawer>
@@ -306,6 +303,8 @@ html, body {
 .router-view {
   width: 100%;
   // top: 46px;
+  height: 100%;
+  // background-color: #F70968
 }
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,

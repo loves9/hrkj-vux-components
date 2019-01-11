@@ -6,6 +6,8 @@
   "HRollTips",
   "HDocCell",
   "HListNew",
+  "HButton",
+  "HButtonGroup",
 
   "Cell",
   "OnePx#/css/1px",
