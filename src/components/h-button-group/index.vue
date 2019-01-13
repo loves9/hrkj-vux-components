@@ -7,6 +7,8 @@
             @click.native="buttonClick(item)"
             >{{item.name}}</x-button>
         </div>
+
+        <transfrom></transfrom>
     </div>
 </template>
 
