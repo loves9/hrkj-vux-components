@@ -27,6 +27,9 @@ export default {
                 },
                 {
                     name: "取消"
+                },
+                {
+                    name: "转办"
                 }
             ]
         };

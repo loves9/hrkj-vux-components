@@ -65,7 +65,7 @@ export default {
 
 |      属性      | 类型  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |
-| dataSource | Array |  ----  | 数据源，接受一个Json数组，其中type分为：primary、warn、default，如果不设置，默认为default | 0.0.11 |
+| dataSource | Array |  ----  | 数据源，接受一个Json数组，其中type分为：primary、warn、default，如果不设置，默认为default。默认展示三个按钮，如果大于三个则以“更多”的形势展示 | 0.0.11 |
 
 <test backgroundColor="cadetblue"/>
 

@@ -8,7 +8,6 @@
             @onPress="itemClick"
             @pullUpRefresh="pullUp"
             @pullDownRefresh="pullDown"
-            :headHeight="100"
         >
             <!-- <div slot="head">
                 <div style="background-color: blue; height:100px; width:100%"></div>
