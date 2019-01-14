@@ -37,13 +37,18 @@
             <slot></slot>
 
             <div v-if="showInfiniteLayer" class="loading-layer">
-                <span v-show="!isNoMoreData" class="spinner-holder" :class="{'active': !isNoMoreData}">
+                <span
+                    v-if="!isNoMoreData"
+                    class="spinner-holder"
+                    :class="{'active': !isNoMoreData}"
+                >
                     <slot name="infinite-spinner">
                         <spinner :style="{fill: loadingLayerColor, stroke: loadingLayerColor}"></spinner>
                     </slot>
+                    <arrow class="arrow" :fillColor="refreshLayerColor" v-if="state != 2"></arrow>
                 </span>
 
-                <div class="nodata_container_cls">
+                <div v-else class="nodata_container_cls">
                     <div class="nodata_line_cls"></div>
                     <div
                         class="nodata_span_cls"
@@ -109,7 +114,7 @@
     -o-user-select: none;
     user-select: none;
 
-    /* background-color: aquamarine */
+    background-color: aquamarine;
 }
 
 ._v-container > ._v-content {
@@ -412,7 +417,7 @@ export default {
 
         // enable infinite loading
         if (this.onInfinite) {
-          if(this.isNoMoreData) return
+            if (this.isNoMoreData) return;
 
             this.infiniteTimer = setInterval(() => {
                 let { left, top, zoom } = this.scroller.getValues();
@@ -486,8 +491,7 @@ export default {
         },
 
         finishInfinite(hideSpinner) {
-            console.log('nomoredata')
-            this.isNoMoreData = true
+            console.log("Scroller-finishInfinite");
 
             this.loadingState = hideSpinner ? 2 : 0;
             this.showLoading = false;
@@ -495,6 +499,10 @@ export default {
             if (this.loadingState == 2) {
                 this.resetLoadingState();
             }
+        },
+
+        noMoreData() {
+            this.isNoMoreData = true;
         },
 
         triggerPullToRefresh() {

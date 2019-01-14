@@ -18,6 +18,7 @@ module.exports = {
         'js-api',
         'request',
         'statistics',
+        'debug',
         'package',
         'deployment'
       ],

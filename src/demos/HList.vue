@@ -89,25 +89,26 @@ export default {
         pullUp() {
             console.log("pullUp");
 
-            for (let index = 0; index < 10; index++) {
-                const element = {
-                    title: "固定收益-新增菜单" + this.order,
-                    processName: "分公司投放条件审批流程",
-                    taskName: "部门负责人审核",
-                    taskColor: "tab_blue",
-                    time: "到达：2018-03-22"
-                };
+            // for (let index = 0; index < 10; index++) {
+            //     const element = {
+            //         title: "固定收益-新增菜单" + this.order,
+            //         processName: "分公司投放条件审批流程",
+            //         taskName: "部门负责人审核",
+            //         taskColor: "tab_blue",
+            //         time: "到达：2018-03-22"
+            //     };
 
-                this.listData.push(element);
+            //     this.listData.push(element);
 
-                this.order += 1;
-            }
+            //     this.order += 1;
+            // }
 
             setTimeout(() => {
-                this.$refs.list.finishPullUpRefresh(true);
+                this.$refs.list.finishPullUpRefresh();
             }, 2000);
         },
         pullDown() {
+            console.log('pullDown')
             setTimeout(() => {
                 this.$refs.list.finishPullDownRefresh();
             }, 2000);

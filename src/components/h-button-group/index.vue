@@ -30,7 +30,7 @@
                 <div v-for="(item, index) in dataSource" :key="index" class="button_item_cls">
                     <x-button
                         :ref="item.op"
-                        :type="item.op == 'agree'? 'primary':'default'"
+                        :type="item.type? item.type:'default'"
                         class="button_cls"
                         @click.native="buttonClick(item)"
                     >{{ processButtonText(item.name) }}</x-button>

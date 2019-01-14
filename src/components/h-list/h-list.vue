@@ -1,7 +1,6 @@
 <template>
     <div class="h-list">
-        <slot name="head">
-        </slot>
+        <slot name="head"></slot>
 
         <scroller
             v-if="dataSource.length != 0"
@@ -11,7 +10,6 @@
             :refreshText="refreshText"
             :scrollerTop="headHeight"
         >
-        
             <slot>
                 <div
                     class="list"
@@ -77,6 +75,7 @@ export default {
         },
         refresh() {
             if (this.isRefreshing) {
+                this.finishPullDownRefresh();
                 return;
             }
             this.isRefreshing = true;
@@ -98,11 +97,13 @@ export default {
 
             this.$emit("pullUpRefresh");
         },
-        finishPullUpRefresh(noMoreData) {
+        finishPullUpRefresh() {
             this.isRefreshing = false;
-            this.isNoMoreData = noMoreData;
 
-            this.$refs.hrkjscroller.finishInfinite(noMoreData);
+            this.$refs.hrkjscroller.finishInfinite();
+        },
+        noMoreData() {
+            this.isNoMoreData = true;
         }
     },
     components: {

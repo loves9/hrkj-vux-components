@@ -40,14 +40,6 @@
         "hasHome": false
     },
     {
-        "name": "h-list-new",
-        "icon": "&#xe603;",
-        "category_en": "HListNew",
-        "category_zh-CN": "列表新",
-        "category_order": 998,
-        "hasHome": false
-    },
-    {
         "name": "h-button-group",
         "icon": "&#xe603;",
         "category_en": "HButtonGroup",
