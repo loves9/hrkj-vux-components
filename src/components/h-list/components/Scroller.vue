@@ -1,6 +1,7 @@
 <template>
     <div
         class="_v-container"
+        :style="scrollerTop? 'top:' + scrollerTop + 'px': 'top:0px'"
         :id="containerId"
         @touchstart="touchStart($event)"
         @touchmove="touchMove($event)"
@@ -107,6 +108,8 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+
+    /* background-color: aquamarine */
 }
 
 ._v-container > ._v-content {
@@ -304,7 +307,9 @@ export default {
         minContentHeight: {
             type: Number,
             default: 0 // px
-        }
+        },
+
+        scrollerTop: Number
     },
 
     computed: {

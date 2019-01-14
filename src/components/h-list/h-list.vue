@@ -1,12 +1,17 @@
 <template>
     <div class="h-list">
+        <slot name="head">
+        </slot>
+
         <scroller
             v-if="dataSource.length != 0"
             ref="hrkjscroller"
             :on-refresh="pullDownRefresh? refresh: undefined"
             :on-infinite="pullUpRefresh? infinite: undefined"
             :refreshText="refreshText"
+            :scrollerTop="headHeight"
         >
+        
             <slot>
                 <div
                     class="list"
@@ -51,6 +56,10 @@ export default {
         pullDownRefresh: {
             type: Boolean,
             default: false
+        },
+        headHeight: {
+            type: Number,
+            default: undefined
         }
     },
     data() {

@@ -1,14 +1,18 @@
 <template>
     <div>
-        <h-list 
-        ref="list"
-        :dataSource="listData" 
-        :pullUpRefresh=true
-        :pullDownRefresh=true
-        @onPress="itemClick" 
-        @pullUpRefresh="pullUp"
-        @pullDownRefresh="pullDown"
+        <h-list
+            ref="list"
+            :dataSource="listData"
+            :pullUpRefresh="true"
+            :pullDownRefresh="true"
+            @onPress="itemClick"
+            @pullUpRefresh="pullUp"
+            @pullDownRefresh="pullDown"
+            :headHeight="100"
         >
+            <!-- <div slot="head">
+                <div style="background-color: blue; height:100px; width:100%"></div>
+            </div> -->
         </h-list>
     </div>
 </template>
@@ -93,21 +97,20 @@ export default {
                     taskName: "部门负责人审核",
                     taskColor: "tab_blue",
                     time: "到达：2018-03-22"
-                }
+                };
 
-                this.listData.push(element)
+                this.listData.push(element);
 
-                this.order += 1
-                
+                this.order += 1;
             }
 
             setTimeout(() => {
-                this.$refs.list.finishPullUpRefresh(true)
+                this.$refs.list.finishPullUpRefresh(true);
             }, 2000);
         },
         pullDown() {
             setTimeout(() => {
-                this.$refs.list.finishPullDownRefresh()
+                this.$refs.list.finishPullDownRefresh();
             }, 2000);
         }
     },

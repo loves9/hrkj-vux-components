@@ -32,9 +32,9 @@
       </div>
 
       <!-- main content -->
-      <view-box ref="viewBox" :body-padding-top="isShowNav ? '46px' : '0'" body-padding-bottom="0px">
+      <view-box ref="viewBox" :body-padding-top="isShowNav ? '0' : '0'" body-padding-bottom="0px">
 
-        <x-header
+        <!-- <x-header
           v-if="isShowNav"
           slot="header"
           style="width:100%;position:absolute;left:0;top:0;z-index:100;"
@@ -45,7 +45,7 @@
           <span v-if="route.path === '/' || route.path === '/component/drawer'" slot="overwrite-left" @click="drawerVisibility = !drawerVisibility">
             <x-icon type="navicon" size="35" style="fill:#fff;position:relative;top:-8px;left:-3px;"></x-icon>
           </span>
-        </x-header>
+        </x-header> -->
 
         <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
         <transition
@@ -313,7 +313,7 @@ html, body {
   will-change: transform;
   transition: all 500ms;
   height: 100%;
-  top: 46px;
+  // top: 46px;
   position: absolute;
   backface-visibility: hidden;
   perspective: 1000;

@@ -42,7 +42,7 @@ export default {
     document.querySelector('#demo_list_box').scrollTop = this.demoTop
   },
   mounted () {
-    this.height = window.innerHeight - 46 - 53
+    this.height = window.innerHeight
   },
   methods: {
     go (name, hasHome) {
