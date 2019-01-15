@@ -10,8 +10,8 @@
             @pullDownRefresh="pullDown"
         >
             <!-- <div slot="head">
-                <div style="background-color: blue; height:100px; width:100%"></div>
-            </div> -->
+                <div style="background-color: #333; height:100px; width:100%"></div>
+            </div>-->
         </h-list>
     </div>
 </template>
@@ -89,26 +89,29 @@ export default {
         pullUp() {
             console.log("pullUp");
 
-            // for (let index = 0; index < 10; index++) {
-            //     const element = {
-            //         title: "固定收益-新增菜单" + this.order,
-            //         processName: "分公司投放条件审批流程",
-            //         taskName: "部门负责人审核",
-            //         taskColor: "tab_blue",
-            //         time: "到达：2018-03-22"
-            //     };
-
-            //     this.listData.push(element);
-
-            //     this.order += 1;
-            // }
-
             setTimeout(() => {
+                for (let index = 0; index < 10; index++) {
+                    const element = {
+                        title: "固定收益-新增菜单" + this.order,
+                        processName: "分公司投放条件审批流程",
+                        taskName: "部门负责人审核",
+                        taskColor: "tab_blue",
+                        time: "到达：2018-03-22"
+                    };
+
+                    this.listData.push(element);
+
+                    this.order += 1;
+                }
                 this.$refs.list.finishPullUpRefresh();
+
+                if (this.order >= 20) {
+                    this.$refs.list.noMoreData();
+                }
             }, 2000);
         },
         pullDown() {
-            console.log('pullDown')
+            console.log("pullDown");
             setTimeout(() => {
                 this.$refs.list.finishPullDownRefresh();
             }, 2000);

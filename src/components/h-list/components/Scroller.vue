@@ -36,8 +36,18 @@
 
             <slot></slot>
 
-            <div v-if="showInfiniteLayer" class="loading-layer">
-                <span
+            <div
+                v-if="onInfinite"
+                
+                class="loading-layer"
+                :class="{'active': loadingState == 1, 'active refreshing': showLoading}"
+            >
+                <span class="spinner-holder" v-if="!showLoading">
+                    <span v-if="!noMoreData" class="text" :style="{color: refreshLayerColor}" v-text="loadingText"></span>
+                    <arrow v-if="!noMoreData" class="arrow" :fillColor="refreshLayerColor"></arrow>
+                </span>
+
+                <!-- <span
                     v-if="!isNoMoreData"
                     class="spinner-holder"
                     :class="{'active': !isNoMoreData}"
@@ -46,18 +56,28 @@
                         <spinner :style="{fill: loadingLayerColor, stroke: loadingLayerColor}"></spinner>
                     </slot>
                     <arrow class="arrow" :fillColor="refreshLayerColor" v-if="state != 2"></arrow>
-                </span>
+                </span>-->
+            </div>
 
-                <div v-else class="nodata_container_cls">
-                    <div class="nodata_line_cls"></div>
-                    <div
-                        class="nodata_span_cls"
-                        :class="{'active': !showLoading && loadingState == 2}"
-                        :style="{color: loadingLayerColor}"
-                        v-text="isNoMoreData? noDataText:'上拉加载更多'"
-                    ></div>
-                    <div class="nodata_line_cls"></div>
-                </div>
+            <div class="loading-layer-cls" v-show="showLoading">
+                <span class="spinner-holder">
+                    <span>
+                        <slot name="infinite-spinner">
+                            <spinner :style="{fill: refreshLayerColor, stroke: refreshLayerColor}"></spinner>
+                        </slot>
+                    </span>
+                </span>
+            </div>
+
+            <div v-if="isNoMoreData" class="nodata_container_cls">
+                <div class="nodata_line_cls"></div>
+                <div
+                    class="nodata_span_cls"
+                    :class="{'active': !showLoading && loadingState == 2}"
+                    :style="{color: loadingLayerColor}"
+                    v-text="isNoMoreData? noDataText:'上拉加载更多'"
+                ></div>
+                <div class="nodata_line_cls"></div>
             </div>
         </div>
     </div>
@@ -113,8 +133,6 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-
-    background-color: aquamarine;
 }
 
 ._v-container > ._v-content {
@@ -135,10 +153,13 @@
 ._v-container > ._v-content > .pull-to-refresh-layer {
     width: 100%;
     height: 60px;
-    margin-top: -60px;
+    /* margin-top: -60px; */
     text-align: center;
     font-size: 16px;
     color: #aaa;
+
+    position: absolute;
+    top: -60px;
 }
 
 ._v-container > ._v-content > .loading-layer {
@@ -148,7 +169,31 @@
     font-size: 16px;
     line-height: 60px;
     color: #aaa;
-    position: relative;
+
+    position: absolute;
+    bottom: -60px;
+}
+
+.loading-layer-cls {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 60px;
+    color: #aaa;
+}
+
+.loading-layer-cls > .spinner-holder {
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+.loading-layer-cls > .spinner-holder .spinner {
+    margin-top: 14px;
+    width: 32px;
+    height: 32px;
+    fill: #444;
+    stroke: #69717d;
 }
 
 ._v-container > ._v-content > .loading-layer > .no-data-text {
@@ -160,7 +205,6 @@
     z-index: 1;
 }
 
-._v-container > ._v-content > .loading-layer > .spinner-holder,
 ._v-container > ._v-content > .loading-layer > .no-data-text {
     opacity: 0;
     transition: opacity 0.15s linear;
@@ -178,14 +222,25 @@
     -webkit-font-smoothing: antialiased;
 }
 
-._v-container > ._v-content > .pull-to-refresh-layer .spinner-holder .arrow,
-._v-container > ._v-content > .loading-layer .spinner-holder .arrow {
+._v-container > ._v-content > .pull-to-refresh-layer .spinner-holder .arrow {
     width: 20px;
     height: 20px;
     margin: 8px auto 0 auto;
 
     -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
     transform: translate3d(0, 0, 0) rotate(0deg);
+
+    -webkit-transition: -webkit-transform 0.2s linear;
+    transition: transform 0.2s linear;
+}
+
+._v-container > ._v-content > .loading-layer .spinner-holder .arrow {
+    width: 20px;
+    height: 20px;
+    margin: 8px auto 0 auto;
+
+    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+    transform: translate3d(0, 0, 0) rotate(180deg);
 
     -webkit-transition: -webkit-transform 0.2s linear;
     transition: transform 0.2s linear;
@@ -214,6 +269,11 @@
     > .pull-to-refresh-layer.active
     .spinner-holder
     .arrow {
+    -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
+    transform: translate3d(0, 0, 0) rotate(180deg);
+}
+
+._v-container > ._v-content > .loading-layer.active .spinner-holder .arrow {
     -webkit-transform: translate3d(0, 0, 0) rotate(180deg);
     transform: translate3d(0, 0, 0) rotate(180deg);
 }
@@ -248,6 +308,11 @@ export default {
         refreshText: {
             type: String,
             default: "下拉刷新"
+        },
+
+        loadingText: {
+            type: String,
+            default: "上拉刷新"
         },
 
         noDataText: {
@@ -351,7 +416,7 @@ export default {
                     .toString(36)
                     .substring(3, 8),
             state: 0, // 0: pull to refresh, 1: release to refresh, 2: refreshing
-            loadingState: 0, // 0: stop, 1: loading, 2: stopping loading
+            loadingState: 0, // 0: finish(no data), 1: loading, 2: stop loading 4: pull to loading
 
             showLoading: false,
 
@@ -417,21 +482,43 @@ export default {
 
         // enable infinite loading
         if (this.onInfinite) {
-            if (this.isNoMoreData) return;
+            var count = 0;
 
             this.infiniteTimer = setInterval(() => {
                 let { left, top, zoom } = this.scroller.getValues();
 
                 // 在 keep alive 中 deactivated 的组件长宽变为 0
-                if (
-                    this.content.offsetHeight > 0 &&
-                    top + 60 >
-                        this.content.offsetHeight - this.container.clientHeight
-                ) {
-                    if (this.loadingState) return;
+                let pullUpHeight =
+                    this.content.offsetHeight - this.container.clientHeight;
+
+                console.log(
+                    pullUpHeight,
+                    top,
+                    this.content.offsetHeight,
+                    this.container.clientHeight,
+                    "feng"
+                );
+
+                // if (this.loadingState) return;
+
+                if (count == 2) {
+                    count == 0;
+                }
+
+                if (this.content.offsetHeight > 0 && top - 80 > pullUpHeight) {
                     this.loadingState = 1;
+                    console.log("loadingState" + this.loadingState);
+
                     this.showLoading = true;
                     this.onInfinite(this.finishInfinite);
+                } else if (
+                    this.content.offsetHeight > 0 &&
+                    top - 10 > pullUpHeight &&
+                    top - 80 < pullUpHeight
+                ) {
+                    this.loadingState = 2;
+
+                    console.log("loadingState" + this.loadingState);
                 }
             }, 10);
         }
@@ -490,19 +577,22 @@ export default {
             this.scroller.finishPullToRefresh();
         },
 
-        finishInfinite(hideSpinner) {
+        finishInfinite() {
             console.log("Scroller-finishInfinite");
 
-            this.loadingState = hideSpinner ? 2 : 0;
+            this.loadingState = 2;
             this.showLoading = false;
 
             if (this.loadingState == 2) {
-                this.resetLoadingState();
+                // this.resetLoadingState();
             }
         },
 
         noMoreData() {
             this.isNoMoreData = true;
+
+                    // clearInterval(this.resizeTimer);
+        if (this.infiniteTimer) clearInterval(this.infiniteTimer);
         },
 
         triggerPullToRefresh() {

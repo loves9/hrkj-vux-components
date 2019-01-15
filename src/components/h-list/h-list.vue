@@ -104,6 +104,8 @@ export default {
         },
         noMoreData() {
             this.isNoMoreData = true;
+
+            this.$refs.hrkjscroller.noMoreData();
         }
     },
     components: {

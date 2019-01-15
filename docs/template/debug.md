@@ -17,3 +17,5 @@
 ### 注：wifi web页面预览时，电脑应和手机在同一WiFi下，选择录入的URL应是你起的服务的地址和端口。
 
 ![image](/t-webView.png)
+
+> 其它相关调试请参考：[调试 Wiki](https://www.minxing365.com/docs/html5/ide/VSCode/debugPrepare.html)
