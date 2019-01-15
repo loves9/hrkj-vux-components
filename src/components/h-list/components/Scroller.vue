@@ -38,14 +38,15 @@
 
             <div
                 v-if="onInfinite"
-                
                 class="loading-layer"
                 :class="{'active': loadingState == 1, 'active refreshing': showLoading}"
             >
-                <span class="spinner-holder" v-if="!showLoading">
-                    <span v-if="!noMoreData" class="text" :style="{color: refreshLayerColor}" v-text="loadingText"></span>
-                    <arrow v-if="!noMoreData" class="arrow" :fillColor="refreshLayerColor"></arrow>
-                </span>
+                <div v-show="!isNoMoreData">
+                    <span class="spinner-holder" v-if="!showLoading">
+                        <span class="text" :style="{color: refreshLayerColor}" v-text="loadingText"></span>
+                        <arrow class="arrow" :fillColor="refreshLayerColor"></arrow>
+                    </span>
+                </div>
 
                 <!-- <span
                     v-if="!isNoMoreData"
@@ -591,8 +592,8 @@ export default {
         noMoreData() {
             this.isNoMoreData = true;
 
-                    // clearInterval(this.resizeTimer);
-        if (this.infiniteTimer) clearInterval(this.infiniteTimer);
+            // clearInterval(this.resizeTimer);
+            if (this.infiniteTimer) clearInterval(this.infiniteTimer);
         },
 
         triggerPullToRefresh() {
