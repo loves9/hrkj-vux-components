@@ -8,10 +8,11 @@
             @onPress="itemClick"
             @pullUpRefresh="pullUp"
             @pullDownRefresh="pullDown"
+            :headHeight="100"
         >
-            <!-- <div slot="head">
+            <div slot="head">
                 <div style="background-color: #333; height:100px; width:100%"></div>
-            </div>-->
+            </div>
         </h-list>
     </div>
 </template>

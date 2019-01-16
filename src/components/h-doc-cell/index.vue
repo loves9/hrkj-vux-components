@@ -8,7 +8,7 @@
             ></i>
             
             <!-- <i :class="iconFont" style="font-size:48px; color:#1E4A8D; lineHeight:48px"></i> -->
-            <img v-if="iconFont == ''" class="fileImg" :src="resolveSrc()">
+            <img v-if="!iconFont.iconClass" class="fileImg" :src="image">
             <div class="hdoc_title_container_cls" style="margin-left:10px;">
                 <span class="hdoc_title_cls">{{title}}</span>
                 <span class="hdoc_sub_title_cls">{{subTitle}}</span>
@@ -31,7 +31,9 @@ export default {
         },
         iconFont: {
             type: Object,
-            default: {}
+            default: () => {
+                return {}
+            }
         },
         fontStyle: {
             type: String,
@@ -49,7 +51,10 @@ export default {
     },
     methods: {
         resolveSrc() {
+            alert('00')
+
             if (this.image != "") {
+                console.log(this.image)
                 return this.image;
             }
         }

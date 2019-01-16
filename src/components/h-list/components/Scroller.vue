@@ -1,7 +1,7 @@
 <template>
     <div
         class="_v-container"
-        :style="scrollerTop? 'top:' + scrollerTop + 'px': 'top:0px'"
+        :style="headHeight? 'top:' + headHeight + 'px': 'top:0px'"
         :id="containerId"
         @touchstart="touchStart($event)"
         @touchmove="touchMove($event)"
@@ -380,7 +380,10 @@ export default {
             default: 0 // px
         },
 
-        scrollerTop: Number
+        headHeight: {
+            type: Number,
+            default: 0
+        }
     },
 
     computed: {
@@ -438,6 +441,10 @@ export default {
         this.container.style.width = this.w;
         this.container.style.height = this.h;
 
+        if(this.headHeight != 0){
+            this.container.style.height = window.innerHeight - this.headHeight + 'px';
+        }
+
         this.content = document.getElementById(this.contentId);
         if (this.cssClass) this.content.classList.add(this.cssClass);
         this.pullToRefreshLayer = this.content.getElementsByTagName("div")[0];
@@ -492,13 +499,13 @@ export default {
                 let pullUpHeight =
                     this.content.offsetHeight - this.container.clientHeight;
 
-                console.log(
-                    pullUpHeight,
-                    top,
-                    this.content.offsetHeight,
-                    this.container.clientHeight,
-                    "feng"
-                );
+                // console.log(
+                //     pullUpHeight,
+                //     top,
+                //     this.content.offsetHeight,
+                //     this.container.clientHeight,
+                //     "feng"
+                // );
 
                 // if (this.loadingState) return;
 
@@ -506,20 +513,20 @@ export default {
                     count == 0;
                 }
 
-                if (this.content.offsetHeight > 0 && top - 80 > pullUpHeight) {
+                if (this.content.offsetHeight - this.headHeight > 0 && top - 80 > pullUpHeight) {
                     this.loadingState = 1;
                     console.log("loadingState" + this.loadingState);
 
                     this.showLoading = true;
                     this.onInfinite(this.finishInfinite);
                 } else if (
-                    this.content.offsetHeight > 0 &&
+                    this.content.offsetHeight - this.headHeight  > 0 &&
                     top - 10 > pullUpHeight &&
                     top - 80 < pullUpHeight
                 ) {
                     this.loadingState = 2;
 
-                    console.log("loadingState" + this.loadingState);
+                    // console.log("loadingState" + this.loadingState);
                 }
             }, 10);
         }

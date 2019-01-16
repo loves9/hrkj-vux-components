@@ -3,15 +3,15 @@
         <slot name="head"></slot>
 
         <scroller
-            v-if="dataSource.length != 0"
             ref="hrkjscroller"
             :on-refresh="pullDownRefresh? refresh: undefined"
             :on-infinite="pullUpRefresh? infinite: undefined"
             :refreshText="refreshText"
-            :scrollerTop="headHeight"
+            :headHeight="headHeight"
         >
             <slot>
-                <div
+                <div v-if="dataSource.length != 0"> 
+                    <div
                     class="list"
                     v-for="(item,index) in dataSource"
                     :key="index"
@@ -28,12 +28,13 @@
                     <div class="title" v-if="item.title">{{item.title}}</div>
                     <div class="time" v-if="item.time">{{item.time}}</div>
                 </div>
+                </div>
+            </slot>
+
+            <slot name="nodata" v-if="nodata" class="container_layout_cls">
+                <span class="nodata_span_cls">没有数据</span>
             </slot>
         </scroller>
-
-        <div v-else class="container_layout_cls">
-            <span class="nodata_span_cls">没有数据</span>
-        </div>
     </div>
 </template>
 
@@ -45,7 +46,9 @@ export default {
     props: {
         dataSource: {
             type: Array,
-            default: []
+            default: () => {
+                return [];
+            }
         },
         pullUpRefresh: {
             type: Boolean,
@@ -57,7 +60,11 @@ export default {
         },
         headHeight: {
             type: Number,
-            default: undefined
+            default: 0
+        },
+        nodata: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -89,7 +96,6 @@ export default {
         },
         infinite() {
             if (this.isRefreshing || this.isNoMoreData) {
-                console.log("nomoredata", this.isNoMoreData);
                 return;
             }
 
@@ -172,7 +178,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 100px;
+    flex: 1;
     flex-direction: column;
 }
 

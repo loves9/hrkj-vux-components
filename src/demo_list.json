@@ -8,6 +8,7 @@
   "HListNew",
   "HButton",
   "HButtonGroup",
+  "HPersonSelector",
 
   "Cell",
   "OnePx#/css/1px",

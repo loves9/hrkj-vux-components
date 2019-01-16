@@ -46,5 +46,13 @@
         "category_zh-CN": "按钮组",
         "category_order": 998,
         "hasHome": false
+    },
+    {
+        "name": "h-person-selector",
+        "icon": "&#xe603;",
+        "category_en": "HPersonSelector",
+        "category_zh-CN": "人员选择器",
+        "category_order": 998,
+        "hasHome": false
     }
 ]
