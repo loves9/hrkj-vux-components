@@ -1,8 +1,8 @@
 module.exports = {
-  title: "华融移动开发平台",
+  title: "移动开发平台",
   description: "快速创建移动应用",
   head: [
-    ['link', { rel: 'icon', href: `/logo.png` }]
+    ['link', { rel: 'icon', href: `/doc.png` }]
   ],
   themeConfig: {
     nav: [
@@ -28,7 +28,8 @@ module.exports = {
         'hv-list',
         'hv-doc-cell',
         'hv-grid',
-        'hv-button-group'
+        'hv-button-group',
+        'hv-person-selector'
       ]
     }
   }

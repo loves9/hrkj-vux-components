@@ -77,10 +77,6 @@ export default {
         TransferDom
     },
     props: {
-        title: {
-            type: String,
-            default: "确定"
-        },
         fontClass: String,
         limitUserDataSource: {
             type: Array,
@@ -91,6 +87,10 @@ export default {
         limited: {
             type: Boolean,
             default: true
+        },
+        multiSelect: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -102,7 +102,9 @@ export default {
                     addItem: true,
                     name: "添加"
                 }
-            ]
+            ],
+
+            selectedUser: []
         };
     },
     methods: {
@@ -124,16 +126,99 @@ export default {
                 }
             }
 
+            this.$emit(
+                "selectedPersonChanged",
+                this.userData.slice(0, this.userData.length - 1)
+            );
 
-            event.stopPropagation(); 
-            
+            event.stopPropagation();
         },
         selectUser() {
             console.log("selectUser");
-            this.showPop = true;
+
+            if (this.limited) {
+                this.showPop = true;
+            } else {
+                if (this.multiSelect) {
+                    MXContacts.selectUsers(
+                        result => {
+                            console.log(result);
+                            // this.userData = result.data;
+                            // if(this.userData.length == 1){
+                            //     this.userData = []
+                            // }
+                            var tem = this.userData.reverse();
+
+                            result.data.forEach(element => {
+                                this.selectedUser.push(element.id);
+                                tem.push(element);
+                            });
+
+                            this.userData = tem.reverse();
+
+                            this.$emit(
+                                "selectedPersonChanged",
+                                this.userData.slice(0, this.userData.length - 1)
+                            );
+
+                            // this.userData.push({
+                            //     addItem: true,
+                            //     name: "添加"
+                            // });
+                        }, //这里可以处理通讯录获取到的人员以及部门数据
+                        false, //是否可以选中部门
+                        [],
+                        true,
+                        false,
+                        this.selectedUser //传入的人员 select user
+                    );
+                } else {
+                    MXContacts.selectUser(
+                        result => {
+                            console.log(result);
+                            // this.userData = result.data;
+
+                            if (this.userData.length == 2) {
+                                this.userData = [
+                                    {
+                                        addItem: true,
+                                        name: "添加"
+                                    }
+                                ];
+                            }
+
+                            this.userData.push(result.data);
+                            this.userData = this.userData.reverse()
+
+                            this.$emit(
+                                "selectedPersonChanged",
+                                this.userData.slice(0, 1)
+                            );
+
+                            // this.userData.push({
+                            //     addItem: true,
+                            //     name: "添加"
+                            // });
+                        }, //这里可以处理通讯录获取到的人员以及部门数据
+                        false, //是否可以选中部门
+                        [],
+                        true,
+                        false,
+                        this.selectedUser //传入的人员 select user
+                    );
+                }
+            }
         },
         limitedSelect(item) {
-            item.selected = !item.selected;
+            if (this.multiSelect) {
+                item.selected = !item.selected;
+            } else {
+                for (let i = 0; i < this.limitUserDataSource.length; i++) {
+                    this.limitUserDataSource[i].selected = false;
+                }
+
+                item.selected = !item.selected;
+            }
         },
         selectButtonClick() {},
         submit() {
@@ -147,6 +232,8 @@ export default {
                     this.userData.push(this.limitUserDataSource[i]);
                 }
             }
+
+            this.$emit("selectedPersonChanged", this.userData);
 
             this.userData.push({
                 addItem: true,
@@ -168,6 +255,9 @@ export default {
         HDocCell,
         XButton,
         HList
+    },
+    destroyed() {
+        this.selectedUser = [];
     }
 };
 </script>
@@ -211,7 +301,6 @@ export default {
 
 <style>
 .vux-x-icon {
-
 }
 .cell-x-icon {
     display: block;
