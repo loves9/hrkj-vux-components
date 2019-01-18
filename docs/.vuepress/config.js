@@ -8,6 +8,7 @@ module.exports = {
     nav: [
       { text: "模板工程", link: "/template/" },
       { text: "组件库", link: "/hrkj-vux/" },
+      { text: "下载", link: "http://imapp.chamc.com.cn:1443/m" },
       { text: "Vux", link: "https://doc.vux.li/zh-CN/" },
       { text: "敏行", link: "https://www.minxing365.com/web/developer.html" }
     ],

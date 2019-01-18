@@ -92,7 +92,7 @@ export default {
 |      属性      | 类型  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |
 | limitUserDataSource | Array |  ----  | 限制选人数据源，开放式选人不用设置 | 0.0.11 |
-| limited | Boolean |  true  | 开放式还是限制式选人，默认为限制式选人 | 0.0.11 |
+| limited | Boolean |  true  | 开放式还是限制式选人，默认为限制式选人。注：开发式选人必选在融讯通中运行才生效 | 0.0.11 |
 | multiSelect | Boolean |  false  | 单选还是多选，默认为单选 | 0.0.11 |
 
 <test backgroundColor="cadetblue"/>
