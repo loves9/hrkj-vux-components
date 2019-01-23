@@ -67,15 +67,15 @@ import CheckIcon from "../check-icon/index";
 import HDocCell from "../h-doc-cell/index";
 import XButton from "../x-button/index";
 
-import TransferDom from "@/directives/transfer-dom/index.js";
+// import TransferDom from "@/directives/transfer-dom/index.js";
 
 import HList from "../h-list/h-list";
 
 export default {
     name: "HPersonSelector",
-    directives: {
-        TransferDom
-    },
+    // directives: {
+    //     TransferDom
+    // },
     props: {
         fontClass: String,
         limitUserDataSource: {

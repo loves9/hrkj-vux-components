@@ -11,6 +11,10 @@ import { sync } from 'vuex-router-sync'
 import vuxLocales from './locales/all.yml'
 import componentsLocales from './locales/components.yml'
 
+import { TransferDom } from 'vux'
+
+Vue.directive('transfer-dom', TransferDom)
+
 Vue.use(VueRouter)
 Vue.use(Vuex)
 

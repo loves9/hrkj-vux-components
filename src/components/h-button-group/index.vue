@@ -43,14 +43,14 @@
 <script>
 import XButton from "../x-button/index";
 
-import TransferDom from "@/directives/transfer-dom/index.js";
+// import TransferDom from "@/directives/transfer-dom/index.js";
 import Popup from '../popup/index'
 
 export default {
     name: "HButtonGroup",
-    directives: {
-        TransferDom
-    },
+    // directives: {
+    //     TransferDom
+    // },
     props: {
         dataSource: {
             type: Array,

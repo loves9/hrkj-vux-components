@@ -9,6 +9,7 @@ import HTransinfo from './src/components/h-transinfo/h-transinfo.vue'
 import HRollTips from './src/components/h-roll-tips/index.vue'
 import HDocCell from './src/components/h-doc-cell/index.vue'
 import HButtonGroup from './src/components/h-button-group/index.vue'
+import HPersonSelector from './src/components/h-person-selector/index.vue'
 
 
 export {
@@ -18,5 +19,6 @@ export {
   HTransinfo,
   HRollTips,
   HDocCell,
-  HButtonGroup
+  HButtonGroup,
+  HPersonSelector
 }

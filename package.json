@@ -1,6 +1,6 @@
 {
   "name": "hrkj-vux-components",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "main": "index.js",
   "description": "Mobile web UI based on Vux",
   "keywords": [
@@ -15,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js",
-    "build": "node build/build.js && rimraf docs/demos/v2/ && mkdirp docs/demos/v2 && cp -r docs/demos/temp/* docs/demos/v2/",
+    "build": "node build/build.js",
     "build:cdn": "node build/build.js --cdn && rimraf docs/demos/v2/ && mkdirp docs/demos/v2 && cp -rf docs/demos/temp/* docs/demos/v2/",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
@@ -131,7 +131,7 @@
     "vue-loader": "^14.1.1",
     "vue-router": "^2.5.3",
     "vue-style-loader": "^2.0.0",
-    "vue-template-compiler": "2.5.16",
+    "vue-template-compiler": "2.5.21",
     "vue-test-utils": "1.0.0-beta",
     "vuepress": "^0.14.8",
     "vuex": "^2.3.1",

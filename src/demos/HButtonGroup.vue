@@ -1,9 +1,6 @@
 <template>
     <div>
-        <h-button-group 
-        :dataSource="buttonArray" 
-        @onPress="itemClick"
-        ></h-button-group>
+        <h-button-group :dataSource="buttonArray" @onPress="itemClick"></h-button-group>
     </div>
 </template>
 
@@ -19,11 +16,11 @@ export default {
             buttonArray: [
                 {
                     name: "确定",
-                    type: 'primary'
+                    type: "primary"
                 },
                 {
                     name: "拒绝",
-                    type: 'warn'
+                    type: "warn"
                 },
                 {
                     name: "取消"
@@ -36,7 +33,7 @@ export default {
     },
     methods: {
         itemClick(item) {
-            console.log(item)
+            console.log(item);
         }
     }
 };
