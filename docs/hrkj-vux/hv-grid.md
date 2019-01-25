@@ -102,7 +102,7 @@ export default {
 | :------------: | :---: | :----: | :----- | :----- |
 | dataSource | Array |  ----  | 数据源 | 0.0.11 |
 
-<test backgroundColor="cadetblue"/>
+<test backgroundColor="rgb(47, 64, 83)" />
 
 |      事件      | 参数  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |

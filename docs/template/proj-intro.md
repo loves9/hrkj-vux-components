@@ -6,7 +6,7 @@
 >
 > module文件夹下的sample为工作流模板工程，用户可作为参考，用不到的情况下要删除，避免打包过大，造成不必要的浪费。
 
-## 1.项目结构
+## 项目结构
 
 ### index.html
 
@@ -97,7 +97,7 @@ store.registerModule('home', homeStore);
 
 npm依赖和模块配置文件
 
-## 2.规范
+## 规范
 
 命名规范需遵从以下原则：
 
@@ -135,11 +135,11 @@ npm依赖和模块配置文件
 
 Vue.js 支持通过 ref 属性来访问其它组件和 HTML 元素。并通过 this.$refs 可以得到组件或 HTML 元素的上下文。在大多数情况下，通过 this.$refs来访问其它组件的上下文是可以避免的。在使用时你需要注意避免调用了不恰当的组件 API，所以应该尽量避免使用 this.$refs。
 
-## 3.路由配置
+## 路由配置
 
 所有通过路由的页面都需要在router.js中注册才能push
 
-## 4.vux样式修改
+## vux样式修改
 
 vux样式可在theme.less中复写，部分控件样式接口可参考：  
 [https://github.com/airyland/vux/blob/v2/src/styles/variable.less](https://github.com/airyland/vux/blob/v2/src/styles/variable.less)
@@ -158,7 +158,7 @@ vux样式也可在vue文件的style中复写，如需引入文件请先引入，
 </style>
 ```
 
-## 5.文件引入
+## 文件引入
 
 如需引入jquery等文件可以参考如下方式：
 > <font size=4 color=brown>注意</font>

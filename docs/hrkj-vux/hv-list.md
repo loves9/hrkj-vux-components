@@ -148,7 +148,7 @@ export default {
 | pullDownRefresh | Boolean |  false  | 设置下拉刷新 | 0.0.11 |
 | headHeight | Number |  0  | 列表顶部距窗口顶部的距离 | 0.0.11 |
 
-<test backgroundColor="cadetblue"/>
+<test backgroundColor="rgb(47, 64, 83)" />
 
 |      事件      | 参数  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |
@@ -158,7 +158,7 @@ export default {
 | finishPullUpRefresh | Boolean |  ----  | finishPullUpRefresh(isNoMoreData :Boolean) 终止上拉刷新，一般加载完全部数据时调用一次 | 0.0.11 |
 | pullDownRefresh | ---- |  ----  | 完成下拉刷新 | 0.0.11 |
 
-<test backgroundColor="coral"/>
+<test />
 
 |      插槽名字      | ----  | ---- | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |

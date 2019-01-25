@@ -95,7 +95,7 @@ export default {
 | limited | Boolean |  true  | 开放式还是限制式选人，默认为限制式选人。注：开发式选人必选在融讯通中运行才生效 | 0.0.11 |
 | multiSelect | Boolean |  false  | 单选还是多选，默认为单选 | 0.0.11 |
 
-<test backgroundColor="cadetblue"/>
+<test backgroundColor="rgb(47, 64, 83)"/>
 
 |      事件      | 参数  | 默认值 | 说明   | 版本 |
 | :------------: | :---: | :----: | :----- | :----- |

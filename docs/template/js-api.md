@@ -2,9 +2,7 @@
 
 客户端提供了一些JS接口来调用native，如：相机、设置标题等等
 
-敏行提供的方法如下：[JS API Wiki](https://www.minxing365.com/docs/html5/jsapi/base.html)
-
-工程中也封装了一些敏行的方法在 `native_plugin.js` 文件中，这个文件在工程初始化时已经加载，使用时只需这样写，例如调用native 弹窗
+工程中封装了一些敏行的方法在 `native_plugin.js` 文件中，这个文件在工程初始化时已经加载，使用时只需这样写，例如调用native 弹窗
 
 ```
  NativeApi.dialog.alert('请评价', '给个好评哦~', function() {
@@ -20,5 +18,5 @@ this.setTitle('页面标题') // 设置页面标题
 
 ```
 
-
+> 更多方法请参考：[JS API Wiki](https://www.minxing365.com/docs/html5/jsapi/base.html)
 
