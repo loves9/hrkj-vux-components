@@ -147,6 +147,7 @@ export default {
 | pullUpRefresh | Boolean |  false  | 设置上拉刷新 | 0.0.11 |
 | pullDownRefresh | Boolean |  false  | 设置下拉刷新 | 0.0.11 |
 | headHeight | Number |  0  | 列表顶部距窗口顶部的距离 | 0.0.11 |
+| nodata | Boolean |  false  | 如果没有数据，请设置为true | 0.0.11 |
 
 <test backgroundColor="rgb(47, 64, 83)" />
 
@@ -164,6 +165,7 @@ export default {
 | :------------: | :---: | :----: | :----- | :----- |
 | 默认插槽 | ---- |  ----  | 如需自定义List Cell的样式，可直接写在h-list标签中，自定义Cell时onPress监听无效，需自行监听 | 0.0.11 |
 | head | ---- |  ----  | 头部插槽，使用头部插槽时需要设置headHeight | 0.0.11 |
+| nodata | ---- |  ----  | 没有数据时显示的视图 | 0.0.11 |
 
 <style scoped>
     table {

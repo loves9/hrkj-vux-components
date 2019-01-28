@@ -13,7 +13,7 @@ vue插件应用工程是通过npm构建的，所以需要安装nodejs，安装�
 
 ## 安装IDE
 
-推荐使用 **Visual Studio Code** \(如何评价VSCode：[https://www.zhihu.com/question/29984607](https://www.zhihu.com/question/29984607)\)开发，VSCode不仅使用方便，里面有minxing（敏行）开发插件，后期调试、打包等都会用到，安装相关问题请参考网上的安装教程或者参考：
+推荐使用 **Visual Studio Code** \(如何评价VSCode：[https://www.zhihu.com/question/29984607](https://www.zhihu.com/question/29984607)\)开发，VSCode不仅使用方便，而且里面有很多开发插件，后期调试、打包等都会用到，安装相关问题请参考网上的安装教程或者参考：
 
 [https://www.minxing365.com/docs/html5/ide/VSCode/setupSoft.html](https://www.minxing365.com/docs/html5/ide/VSCode/setupSoft.html)
 
