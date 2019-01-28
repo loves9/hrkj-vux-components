@@ -7,22 +7,18 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: '类别',
+        text: '应用',
         items: [
-          { 
-            text: 'WEB应用',
-            items: [
-              {
-                text: '框架模板', link: "/template/"
-              },
-              {
-                text: '真机调试', link: "/debug-web/"
-              },
-              {
-                text: '打包', link: "/package-web/"
-              }
-            ]           
-          }
+          {
+            text: '框架模板', link: "/template/"
+          },
+          {
+            text: '真机调试', link: "/debug-web/"
+          },
+          {
+            text: '打包', link: "/package-web/"
+          },
+          { text: "部署", link: "/deployment/" }
         ]
       },
       { text: "组件库", 
@@ -39,7 +35,7 @@ module.exports = {
           }
         ] 
       },
-      { text: "部署", link: "/deployment/" },
+      // { text: "集成", link: "/deployment/" },
       { text: "下载", link: "/download/" },
       { text: "Vux", link: "https://doc.vux.li/zh-CN/" },
       { text: "敏行", link: "https://www.minxing365.com/web/developer.html" }
