@@ -27,13 +27,13 @@ module.exports = {
       },
       { text: "组件库", 
         items: [
-          { text: 'hrkj-vux-compononts', 
+          { text: 'hrkj-vux-components', 
             items: [
               {
                 text: 'API', link: "/hrkj-vux/"
               },
               {
-                text: 'Demo演示', link: "/template/"
+                text: 'Demo演示', link: "https://loves9.github.io/hrkj-vux-components-demo/index.html#/"
               }
             ] 
           }
@@ -47,6 +47,7 @@ module.exports = {
     sidebar: {
       "/template/": [
         'envconfig',
+        'tem-start',
         'proj-intro',
         'js-api',
         'request',

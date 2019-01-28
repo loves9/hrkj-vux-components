@@ -78,7 +78,7 @@ npm run createModule <your module name>
 
   主store文件夹，新模块需要在index.js中注册
 
-```
+```js
 // 引入你的模块
 import homeStore from '@/module/home/store'  
 // 注册
@@ -146,7 +146,7 @@ vux样式可在theme.less中复写，部分控件样式接口可参考：
 
 vux样式也可在vue文件的style中复写，如需引入文件请先引入，然后复写样式
 
-```
+```less
 <style lang='less'>
 @import "~vux/src/styles/reset.less";
 @import "~vux/src/styles/1px.less";
@@ -172,7 +172,7 @@ vux样式也可在vue文件的style中复写，如需引入文件请先引入，
 
 1.alias加入 'jquery': 'jquery'
 
-```
+```js
 resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -185,7 +185,7 @@ resolve: {
 
 2.在module.exports的里面加入
 
-```
+```js
 {
    jQuery: "jquery",
    $: "jquery"
@@ -194,7 +194,7 @@ resolve: {
 
 如：
 
-```
+```js
 module.exports = vuxLoader.merge(webpackConfig, {
   plugins: ['vux-ui', 'progress-bar', 'duplicate-style',
   {

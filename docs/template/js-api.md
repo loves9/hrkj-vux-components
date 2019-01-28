@@ -4,7 +4,7 @@
 
 工程中封装了一些敏行的方法在 `native_plugin.js` 文件中，这个文件在工程初始化时已经加载，使用时只需这样写，例如调用native 弹窗
 
-```
+```js
  NativeApi.dialog.alert('请评价', '给个好评哦~', function() {
     // your code
  });
@@ -12,7 +12,7 @@
 
 工程还封装了一些常用的native方法：
 
-```
+```js
 this.setTitle('页面标题') // 设置页面标题
 
 

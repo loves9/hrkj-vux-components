@@ -2,7 +2,7 @@
 
 具体可以参考工程中的请求示例，请求体全部定义在api.js文件中
 
-```
+```js
 // 定义请求体
 let request = HttpBusinessRequest.queryMockServer();
 request.complete = () => {
