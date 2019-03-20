@@ -87,7 +87,7 @@ store.registerModule('home', homeStore);
 
 * #### style
 
-  样式文件夹
+  样式文件夹，`pubilc.less`中可以写一些公共样式，`theme.less`为Vux样式配置文件，这些都是按照UI规范配置好的样式，用户可以根据自身项目需求修改
 
 ### static
 
@@ -139,10 +139,9 @@ Vue.js 支持通过 ref 属性来访问其它组件和 HTML 元素。并通过 t
 
 所有通过路由的页面都需要在router.js中注册才能push
 
-## vux样式修改
+## Vux样式修改
 
-vux样式可在theme.less中复写，部分控件样式接口可参考：  
-[https://github.com/airyland/vux/blob/v2/src/styles/variable.less](https://github.com/airyland/vux/blob/v2/src/styles/variable.less)
+Vux样式可在theme.less中复写，部分控件样式接口可参考：[Vux样式接口](https://github.com/airyland/vux/blob/v2/src/styles/variable.less)
 
 vux样式也可在vue文件的style中复写，如需引入文件请先引入，然后复写样式
 
@@ -211,6 +210,6 @@ module.exports = vuxLoader.merge(webpackConfig, {
 
 最后在应用页面中引入`import $ form 'jquery'`
 
-参考：[https://segmentfault.com/a/1190000007020623](https://segmentfault.com/a/1190000007020623)
+参考：[Vue中如何引入jquery](https://segmentfault.com/a/1190000007020623)
 
 

@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/mobile/',
   title: "移动开发平台",
   description: "快速创建移动应用",
   head: [
@@ -37,8 +38,7 @@ module.exports = {
       },
       // { text: "集成", link: "/deployment/" },
       { text: "下载", link: "/download/" },
-      { text: "Vux", link: "https://doc.vux.li/zh-CN/" },
-      { text: "敏行", link: "https://www.minxing365.com/web/developer.html" }
+      { text: "Vux", link: "https://doc.vux.li/zh-CN/" }
     ],
     sidebar: {
       "/template/": [
