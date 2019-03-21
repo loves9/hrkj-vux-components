@@ -11,7 +11,7 @@ module.exports = {
         text: '应用',
         items: [
           {
-            text: '框架模板', link: "/template/"
+            text: '开发指引', link: "/template/"
           },
           {
             text: '真机调试', link: "/debug-web/"
@@ -42,12 +42,24 @@ module.exports = {
     ],
     sidebar: {
       "/template/": [
-        'envconfig',
-        'tem-start',
-        'proj-intro',
-        'js-api',
-        'request',
-        'statistics'
+        'summarize',
+        {
+          title: '开发规范',
+          children: [
+            'devrule'
+          ]
+        },
+        {
+          title: '开发指引',
+          children: [
+            'envconfig',
+            'tem-start',
+            'proj-intro',
+            'js-api',
+            'request',
+            'statistics'
+          ]
+        }
       ],
       "/hrkj-vux/": [
         'hv-start',
