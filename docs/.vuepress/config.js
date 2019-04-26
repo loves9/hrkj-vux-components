@@ -8,7 +8,7 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: '应用',
+        text: '应用开发',
         items: [
           {
             text: '开发指引', link: "/template/"

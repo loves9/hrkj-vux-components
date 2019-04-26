@@ -1,28 +1,31 @@
 <template>
     <div class="main_container_cls">
-        <grid :show-lr-borders="false" :show-vertical-dividers="true" :cols="4">
-            <div v-for="(item, index) in userData" :key="index">
-                <grid-item :label="item.name" @click.native="selectUser">
-                    <x-icon
-                        v-if="!item.addItem"
-                        type="ios-minus-outline"
-                        size="30"
-                        style="font-size:20px; color:red; position:absolute; top:5px; right:10px; fill:red"
-                        @click="deletUser(item, $event)"
-                    ></x-icon>
-                    <!-- <x-icon type="ios-minus-outline" size="30"></x-icon> -->
-                    <img v-if="!item.addItem" slot="icon" :src="item.avatar_url">
+        <grid :cols="4">
+            <grid-item
+                v-for="(item, index) in userData"
+                :key="index"
+                :label="item.name"
+                @click.native="selectUser"
+                :class="hasSperateLine(index, userData.length)?'hr-border-bottom':''"
+            >
+                <x-icon
+                    v-if="!item.addItem"
+                    type="ios-minus"
+                    size="28"
+                    style="font-size:20px; color:#d81e06; position:absolute; top:5px; right:10px; fill:red"
+                    @click="deletUser(item, $event)"
+                ></x-icon>
 
-                    <x-icon
-                        v-if="item.addItem"
-                        slot="icon"
-                        type="ios-plus-outline"
-                        size="30"
-                        class="add_icon_cls"
-                        @icon-success-color="'red'"
-                    ></x-icon>
-                </grid-item>
-            </div>
+                <img slot="icon" v-if="!item.addItem" :src="item.avatar_url">
+
+                <x-icon
+                    v-if="item.addItem"
+                    slot="icon"
+                    type="ios-plus"
+                    size="28"
+                    class="add_icon_cls"
+                ></x-icon>
+            </grid-item>
         </grid>
 
         <div v-transfer-dom>
@@ -108,8 +111,24 @@ export default {
         };
     },
     methods: {
+        hasSperateLine(index, sum) {
+            let row = parseInt(sum/4)
+
+            if (sum%4 == 0) {
+                row = row - 1
+            }
+
+            if (row > 0) {
+                let minIndex = 0
+                let maxIndex = row*4
+                if (index>= minIndex && index<maxIndex) {
+                    return true
+                }
+            }
+            return false;
+        },
         deletUser(item, event) {
-            console.log(item);
+            // console.log(item);
             // this.userData.pop(item);
 
             var temArr = [];
@@ -134,7 +153,7 @@ export default {
             event.stopPropagation();
         },
         selectUser() {
-            console.log("selectUser");
+            // console.log("selectUser");
 
             if (this.limited) {
                 this.showPop = true;
@@ -142,7 +161,7 @@ export default {
                 if (this.multiSelect) {
                     MXContacts.selectUsers(
                         result => {
-                            console.log(result);
+                            // console.log(result);
                             // this.userData = result.data;
                             // if(this.userData.length == 1){
                             //     this.userData = []
@@ -175,7 +194,7 @@ export default {
                 } else {
                     MXContacts.selectUser(
                         result => {
-                            console.log(result);
+                            // console.log(result);
                             // this.userData = result.data;
 
                             if (this.userData.length == 2) {
@@ -188,7 +207,7 @@ export default {
                             }
 
                             this.userData.push(result.data);
-                            this.userData = this.userData.reverse()
+                            this.userData = this.userData.reverse();
 
                             this.$emit(
                                 "selectedPersonChanged",
@@ -299,13 +318,22 @@ export default {
 }
 </style>
 
-<style>
-.vux-x-icon {
-}
+<style lang="less" scoped>
 .cell-x-icon {
     display: block;
     fill: green;
 }
+.weui-grids:before {
+    border-top: none !important;
+}
+.weui-grid:after {
+    border-bottom: none;
+}
+// .weui-grid {
+//     // background-color: red;
+
+//     // border-top: 1px solid #d9d9d9;
+// }
 </style>
 
 
@@ -315,5 +343,13 @@ export default {
     width: 100%;
     // height: 100%;
     // height: 60px;
+}
+
+.hr-border-bottom:after{
+  border-bottom:1px solid #D9D9D9;
+//   background-color: #D9D9D9;
+  /* 如果不用 background-color, 使用 border-top:1px solid #D9D9D9; */
+  -webkit-transform: scaleY(.3);
+  transform:scaleY(.3);
 }
 </style>
