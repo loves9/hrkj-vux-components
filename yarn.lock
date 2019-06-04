@@ -2,12 +2,57 @@
 # yarn lockfile v1
 
 
-"@antv/adjust@~0.0.3":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@antv/adjust/-/adjust-0.0.7.tgz#01e83c36b28c50eecb98fad9dc662176b4036ab7"
-  integrity sha512-6yxY/fvZcWJUHYvX5YeVBW5+XWwzcpo6YQf1gN6vuOswzvdslHmwC9jK3nGN32qJgVxBE9ZUsMfgfFn8vUgdPQ==
+"@antv/adjust@~0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@antv/adjust/-/adjust-0.1.1.tgz#e263ab0e1a1941a648842fc086cf65a7e3b75e98"
+  integrity sha512-9FaMOyBlM4AgoRL0b5o0VhEKAYkexBNUrxV8XmpHU/9NBPJONBOB/NZUlQDqxtLItrt91tCfbAuMQmF529UX2Q==
   dependencies:
-    fecha "~2.3.1"
+    "@antv/util" "~1.3.1"
+
+"@antv/attr@~0.1.0":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@antv/attr/-/attr-0.1.2.tgz#2eeb122fcaaf851a2d8749abc7c60519d3f77e37"
+  integrity sha512-QXjP+T2I+pJQcwZx1oCA4tipG43vgeCeKcGGKahlcxb71OBAzjJZm1QbF4frKXcnOqRkxVXtCr70X9TRair3Ew==
+  dependencies:
+    "@antv/util" "~1.3.1"
+
+"@antv/f2@^3.1.4-beta.2":
+  version "3.3.9"
+  resolved "https://registry.yarnpkg.com/@antv/f2/-/f2-3.3.9.tgz#3793da1925aba25cf3e39d7084b69290330c1107"
+  integrity sha512-MOVhfAt5Hh8Z70sqd8zZT/Xj3FM7ow0SCCK81NKXQP2u2sJCHrZcWK9K8guz7vDQ8w5xqI7fXuaaXHwgY+ZO4g==
+  dependencies:
+    "@antv/adjust" "~0.1.1"
+    "@antv/attr" "~0.1.0"
+    "@antv/scale" "~0.1.2"
+    "@antv/util" "~1.2.5"
+    hammerjs "^2.0.8"
+
+"@antv/gl-matrix@^2.7.1":
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/@antv/gl-matrix/-/gl-matrix-2.7.1.tgz#acb8e37f7ab3df01345aba4372d7942be42eba14"
+  integrity sha512-oOWcVNlpELIKi9x+Mm1Vwbz8pXfkbJKykoCIOJ/dNK79hSIANbpXJ5d3Rra9/wZqK6MC961B7sybFhPlLraT3Q==
+
+"@antv/scale@~0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@antv/scale/-/scale-0.1.2.tgz#bd9cb33033d8944b52c3e0e4accfd60541c3c147"
+  integrity sha512-lAJJUDiQIgoBSnlJDlMjbuaO2K71/e85hNtsjuv22os6QPqJZE/Q56JXLAgT5L5vXo9d4DFnxzwOBjdonHJXoA==
+  dependencies:
+    "@antv/util" "~1.3.1"
+    fecha "~2.3.3"
+
+"@antv/util@~1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@antv/util/-/util-1.2.5.tgz#8896c5055ec29e4a344b5daa97bf82905f7d40cd"
+  integrity sha512-yz1AjXSEjNu9O5kK9pqKq69f/Iliu/IA3XXljUcfrlbUtmUJ0CH1tB5I60vPqfaKaUPhz+/35K+56yqaCsGmqA==
+  dependencies:
+    "@antv/gl-matrix" "^2.7.1"
+
+"@antv/util@~1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@antv/util/-/util-1.3.1.tgz#30a34b201ff9126ec0d58c72c8166a9c3e644ccd"
+  integrity sha512-cbUta0hIJrKEaW3eKoGarz3Ita+9qUPF2YzTj8A6wds/nNiy20G26ztIWHU+5ThLc13B1n5Ik52LbaCaeg9enA==
+  dependencies:
+    "@antv/gl-matrix" "^2.7.1"
 
 "@types/node@^6.0.46":
   version "6.0.89"
@@ -144,6 +189,11 @@ ansi-align@^1.1.0:
   integrity sha1-LwwWWIKXOa3V67FeawxuNCPwFro=
   dependencies:
     string-width "^1.0.1"
+
+ansi-colors@^3.0.0:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
+  integrity sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -334,9 +384,11 @@ asn1.js@^4.0.0:
     minimalistic-assert "^1.0.0"
 
 asn1@~0.2.3:
-  version "0.2.3"
-  resolved "http://registry.npm.taobao.org/asn1/download/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
-  integrity sha1-2sh4dxPJlmhJ/IGAd36+nB3fO4Y=
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
+  integrity sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
+  dependencies:
+    safer-buffer "~2.1.0"
 
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
@@ -1171,9 +1223,9 @@ batch@0.6.1:
   integrity sha1-3DQxT05nkxgJP8dgJyUl+UvyXBY=
 
 bcrypt-pbkdf@^1.0.0:
-  version "1.0.1"
-  resolved "http://registry.npm.taobao.org/bcrypt-pbkdf/download/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
-  integrity sha1-Y7xdy2EzG5K8Bf1SiVPDNGKgb40=
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
+  integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
 
@@ -2213,7 +2265,7 @@ d@1:
 
 dashdash@^1.12.0:
   version "1.14.1"
-  resolved "http://registry.npm.taobao.org/dashdash/download/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
+  resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
@@ -2580,11 +2632,12 @@ duplexer@^0.1.1:
   integrity sha1-rOb/gIwc5mtX0ev5eXessCM0z8E=
 
 ecc-jsbn@~0.1.1:
-  version "0.1.1"
-  resolved "http://registry.npm.taobao.org/ecc-jsbn/download/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
-  integrity sha1-D8c6ntXw1Tw4GTOYUj735UN3dQU=
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
+  integrity sha1-OoOpBOVDUyh4dMVkt1SThoSamMk=
   dependencies:
     jsbn "~0.1.0"
+    safer-buffer "^2.1.0"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -3223,10 +3276,10 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-fecha@~2.3.1:
+fecha@~2.3.3:
   version "2.3.3"
-  resolved "http://registry.npm.taobao.org/fecha/download/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
-  integrity sha1-lI50FX3xoy/RsSw6PDzctuydls0=
+  resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
+  integrity sha512-lUGBnIamTAwk4znq5BcqsDaxSmZ9nDVJaij6NvRt/Tg4R69gERA+otPKbS86ROw9nxVMw2/mp1fnaiWqbs6Sdg==
 
 figures@^1.3.5:
   version "1.7.0"
@@ -3519,7 +3572,7 @@ get-value@^2.0.2, get-value@^2.0.6:
 
 getpass@^0.1.1:
   version "0.1.7"
-  resolved "http://registry.npm.taobao.org/getpass/download/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
+  resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   integrity sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
   dependencies:
     assert-plus "^1.0.0"
@@ -3698,6 +3751,11 @@ gzip-size@^3.0.0:
   integrity sha1-VGGI6b3DN/Zzdy+BZgRks4nc5SA=
   dependencies:
     duplexer "^0.1.1"
+
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handle-thing@^1.2.5:
   version "1.2.5"
@@ -4549,7 +4607,7 @@ js-yaml@~3.7.0:
 
 jsbn@~0.1.0:
   version "0.1.1"
-  resolved "http://registry.npm.taobao.org/jsbn/download/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
+  resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
 jsdom@^7.0.2:
@@ -5149,7 +5207,7 @@ mem@^1.1.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-memory-fs@^0.4.0, memory-fs@~0.4.1:
+memory-fs@^0.4.0, memory-fs@^0.4.1, memory-fs@~0.4.1:
   version "0.4.1"
   resolved "http://registry.npm.taobao.org/memory-fs/download/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
   integrity sha1-OpoguEYlI+RHz7x+i7gO1me/xVI=
@@ -5270,6 +5328,11 @@ mime@1.3.x, mime@^1.2.11, mime@^1.3.4:
   version "1.3.6"
   resolved "http://registry.npm.taobao.org/mime/download/mime-1.3.6.tgz#591d84d3653a6b0b4a3b9df8de5aa8108e72e5e0"
   integrity sha1-WR2E02U6awtKO5343lqoEI5y5eA=
+
+mime@^2.4.2:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.3.tgz#229687331e86f68924e6cb59e1cdd937f18275fe"
+  integrity sha512-QgrPRJfE+riq5TPZMcHZOtm8c6K/yYrMbKIoRfapfiGLxS8OTeIfRhUGW5LU7MlRa52KOAGCfUNruqLrIBvWZw==
 
 mimeparse@^0.1.4:
   version "0.1.4"
@@ -6568,6 +6631,11 @@ range-parser@^1.0.3, range-parser@^1.2.0, range-parser@~1.2.0:
   resolved "http://registry.npm.taobao.org/range-parser/download/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
   integrity sha1-9JvmtIeJTdxA3MlKMi9hEJLgDV4=
 
+range-parser@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
+  integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
+
 raw-body@~1.1.0:
   version "1.1.7"
   resolved "http://registry.npm.taobao.org/raw-body/download/raw-body-1.1.7.tgz#1d027c2bfa116acc6623bca8f00016572a87d425"
@@ -7037,6 +7105,11 @@ safe-json-parse@~1.0.1:
   resolved "http://registry.npm.taobao.org/safe-json-parse/download/safe-json-parse-1.0.1.tgz#3e76723e38dfdda13c9b1d29a1e07ffee4b30b57"
   integrity sha1-PnZyPjjf3aE8mx0poeB//uSzC1c=
 
+safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
+  integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
 samsam@1.x, samsam@^1.1.3:
   version "1.2.1"
   resolved "http://registry.npm.taobao.org/samsam/download/samsam-1.2.1.tgz#edd39093a3184370cb859243b2bdf255e7d8ea67"
@@ -7437,18 +7510,18 @@ sprintf-js@~1.0.2:
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
 sshpk@^1.7.0:
-  version "1.13.1"
-  resolved "http://registry.npm.taobao.org/sshpk/download/sshpk-1.13.1.tgz#512df6da6287144316dc4c18fe1cf1d940739be3"
-  integrity sha1-US322mKHFEMW3EwY/hzx2UBzm+M=
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
+  integrity sha512-HXXqVUq7+pcKeLqqZj6mHFUMvXtOJt1uoUx09pFW6011inTMxqI8BA8PM95myrIyyKwdnzjdFjLiE6KBPVtJIg==
   dependencies:
     asn1 "~0.2.3"
     assert-plus "^1.0.0"
-    dashdash "^1.12.0"
-    getpass "^0.1.1"
-  optionalDependencies:
     bcrypt-pbkdf "^1.0.0"
+    dashdash "^1.12.0"
     ecc-jsbn "~0.1.1"
+    getpass "^0.1.1"
     jsbn "~0.1.0"
+    safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
 stackframe@^1.0.3:
@@ -7854,7 +7927,7 @@ tunnel-agent@~0.4.1:
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
-  resolved "http://registry.npm.taobao.org/tweetnacl/download/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
+  resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
 type-check@~0.3.2:
@@ -8125,6 +8198,11 @@ uuid@^3.0.0, uuid@^3.0.1:
   resolved "http://registry.npm.taobao.org/uuid/download/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
   integrity sha1-PdPT55Crwk17DToDT/q6vijrvAQ=
 
+uuid@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+  integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
+
 v-markdown-loader@^0.6.3-beta.2:
   version "0.6.3-beta.4"
   resolved "http://registry.npm.taobao.org/v-markdown-loader/download/v-markdown-loader-0.6.3-beta.4.tgz#5a8c5f0d79124410fc8fcdc783bb1763ba4bf39b"
@@ -8238,10 +8316,10 @@ vue-style-loader@^4.0.1:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@2.5.16:
-  version "2.5.16"
-  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.16.tgz#93b48570e56c720cdf3f051cc15287c26fbd04cb"
-  integrity sha1-k7SFcOVscgzfPwUcwVKHwm+9BMs=
+vue-template-compiler@2.5.21:
+  version "2.5.21"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.21.tgz#a57ceb903177e8f643560a8d639a0f8db647054a"
+  integrity sha512-Vmk5Cv7UcmI99B9nXJEkaK262IQNnHp5rJYo+EwYpe2epTAXqcVyExhV6pk8jTkxQK2vRc8v8KmZBAwdmUZvvw==
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -8258,10 +8336,10 @@ vue-test-utils@1.0.0-beta:
   dependencies:
     lodash "^4.17.4"
 
-vue@2.5.16:
-  version "2.5.16"
-  resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
-  integrity sha1-B+23XoQSqu7YceuvqZ9GclhKAIU=
+vue@2.5.21:
+  version "2.5.21"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.21.tgz#3d33dcd03bb813912ce894a8303ab553699c4a85"
+  integrity sha512-Aejvyyfhn0zjVeLvXd70h4hrE4zZDx1wfZqia6ekkobLmUZ+vNFQer53B4fu0EjWBSiqApxPejzkO1Znt3joxQ==
 
 vuex-i18n@^1.3.1:
   version "1.4.1"
@@ -8363,7 +8441,7 @@ webpack-bundle-analyzer@^2.2.1:
     opener "^1.4.3"
     ws "^2.3.1"
 
-webpack-dev-middleware@^1.0.11, webpack-dev-middleware@^1.11.0, webpack-dev-middleware@^1.12.0:
+webpack-dev-middleware@^1.0.11, webpack-dev-middleware@^1.11.0:
   version "1.12.0"
   resolved "http://registry.npm.taobao.org/webpack-dev-middleware/download/webpack-dev-middleware-1.12.0.tgz#d34efefb2edda7e1d3b5dbe07289513219651709"
   integrity sha1-007++y7dp+HTtdvgcolRMhllFwk=
@@ -8373,6 +8451,16 @@ webpack-dev-middleware@^1.0.11, webpack-dev-middleware@^1.11.0, webpack-dev-midd
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
+
+webpack-dev-middleware@^3.6.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.7.0.tgz#ef751d25f4e9a5c8a35da600c5fda3582b5c6cff"
+  integrity sha512-qvDesR1QZRIAZHOE3iQ4CXLZZSQ1lAUsSpnQmlB1PBfoN/xdRjmge3Dok0W4IdaVLJOGJy3sGI4sZHwjRU0PCA==
+  dependencies:
+    memory-fs "^0.4.1"
+    mime "^2.4.2"
+    range-parser "^1.2.1"
+    webpack-log "^2.0.0"
 
 webpack-dev-server@^2.9.4:
   version "2.9.4"
@@ -8416,6 +8504,14 @@ webpack-hot-middleware@^2.20.0:
     html-entities "^1.2.0"
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
+
+webpack-log@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-log/-/webpack-log-2.0.0.tgz#5b7928e0637593f119d32f6227c1e0ac31e1b47f"
+  integrity sha512-cX8G2vR/85UYG59FgkoMamwHUIkSSlV3bBMRsbxVXVUk2j6NleCKjQ/WE9eYg9WY4w25O9w8wKP4rzNZFmUcUg==
+  dependencies:
+    ansi-colors "^3.0.0"
+    uuid "^3.3.2"
 
 webpack-merge@^1.1.2:
   version "1.1.2"
@@ -8728,4 +8824,3 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/yeast/download/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
   integrity sha1-AI4G2AlDIMNy28L47XagymyKxBk=
-
